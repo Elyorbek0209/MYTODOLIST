@@ -1,0 +1,268 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% block title %}
+    <title>Grocery Delivery Service</title>
+    {% endblock %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'home_app/css/base.css' %}" >
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    
+</head>
+
+<body class="browse-mobile tablet-desktop tablet mini-tablet">
+
+   <!-- Navigation --> 
+
+    <global-header>
+
+        <div id="global-header" class="top-nav-bar">
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- Brand & LOGO -->
+
+                <div class="container-fluid">
+
+                    <a class="navbar-brand" href="#">Peapod by STOP&SHOP</a>
+                
+
+                <!-- 2 Links with DROP DOWNS-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                
+                    
+                    <ul class="navbar-nav ml-auto">
+                
+                        <!--1st Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+                            Browse Aisles
+                            </a>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Organic</a>
+                            <a class="dropdown-item" href="#">Meat</a>
+                            <a class="dropdown-item" href="#">Seafood</a>
+                            </div>
+                        </li>
+
+
+                        <!--2nd Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbardrop" data-toggle="dropdown">
+                            My Shop
+                            </a>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Specials</a>
+                            <a class="dropdown-item" href="#">Loaded Coupons</a>
+                            <a class="dropdown-item" href="#">Recommended for you</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+                <div class="global-header_resizable-section">
+                    <div class="subnav-shopping-mode">
+
+
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search groceries & household items">
+                            <span class="input-group-text">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <!--
+                            <button class="btn btn-success" type="submit">$0.00</button>
+                            -->
+                        </form>
+
+    
+                    </div>
+                </div>
+
+                <div class="global-header_account-container spyglass-nav-group_wrapper">
+
+                </div>
+
+            </nav>
+        </div>
+    </global-header>
+
+
+
+    <global-header-subnav>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light">
+
+                    <div class="container-fluid">
+                       
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                        data-target="#navbarResponsive">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    
+                    </div>
+                  
+
+	                <div class="collapse navbar-collapse show" id="navbarResponsive">
+                       
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active"><a class='nav-link' href="specials.html">Specials</a></li>
+                            <li class="nav-item "><a class='nav-link' href="coupons.html">Loaded Coupons</a></li>
+                            <li class="nav-item "><a class='nav-link' href="purchases.html">Past Purchases</a></li>
+                            <li class="nav-item "><a class='nav-link' href="order.html">Order Genius</a></li>
+                            <li class="nav-item "><a class='nav-link' href="shopping.html">Shopping List</a></li>
+                            <li class="nav-item "><a class='nav-link' href="help.html">Help</a></li>
+                        </ul>
+
+                        
+	                </div>
+
+                    <div class="subnav-shopping-mode">
+
+            
+                        <a href="#" class="subnav-shopping-mode_element robot-shopping-mode-type">
+                            <b class="highlighted-text">Delivery</b>
+                        </a>
+
+                        <span class="subnav-shopping-mode_element">to</span>
+
+                        <a href="#" class="subnav-shopping-mode_element robot-shopping-mode-location">
+                            <b class="highlighted-text">06901</b>
+                        </a>
+                        
+                        <span class="subnav-shopping-mode_element">|</span>
+
+                        <a href="#" class="subnav-shopping-mode_element robot-shopping-mode-slot">
+                            <b class="highlighted-text">Select a Time</b>
+                        </a>
+
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </global-header-subnav>
+
+
+    
+    <br>
+
+    <!--- Image Slider -->
+
+    <div class="pdl-carousel_container">
+
+        <div class="row">
+            {% for i in items %}
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="card card-body h-100" >
+                    <a class="large-tile large-tile--clickable">
+                    <img class="large-tile_image" src="{{i.image}}" >  
+                    <br>
+                    <div class="large-tile_content">
+                        <h2 class='h6-bold large-tile_text-block'>{{i.title}}</h2>
+                        
+                        <div class="large-tile_description">
+                            <p class="large-tile_text-block">
+                                <span>{{i.description}}</span>
+                            </p>
+                        </div>
+
+                        <div class="large-tile_cta">
+                            <button class="btn btn--secondary btn--block btn-lg">Shop Now</button>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+   
+    <br>
+    <!--- Jumbotron -->
+    <!--- Three Column Section -->
+    <!--- Two Column Section -->
+    <!--- Fixed background -->
+    <!--- Emoji Section -->
+        <div class="row">
+          
+        {% for i in items1 %}
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                <div class="card card-body" >
+
+                    <img class="gallery_image" src="{{i.image}}" >  
+                    <h2 class='h6-bold large-tile_text-block'>{{i.measuredPrice}}</h2>
+                    <p class="card-text">{{i.description}}</p>
+                    <p class="card-text">{{i.price}}</p>
+                </div>
+
+            </div>
+        {% endfor %}
+         
+        </div>
+
+    <br>
+
+        <div class="row"> 
+
+        {% for i in featured_Specials %}
+            <div class="col-lg-2 col-md-2 col-sm-2">
+
+            <div class="card card-body" >
+            <img class="gallery_image" src="{{i.image}}" >  
+            <h2><b>{{i.measuredPrice}}</b></h4>
+            <p class="card-text">{{i.description}}</p>
+            <p class="card-text">{{i.price}}</p>
+            </div>
+
+            </div>
+        {% endfor %}
+            
+        </div>
+
+     <br>
+
+        <div class="row">
+           
+        {% for i in recommended %}
+
+        <div class="col-lg-2 col-md-2 col-sm-2">
+
+            <div class="card card-body" >
+                
+            <img class="gallery_image" src="{{i.image}}" >  
+            <h4><b>{{i.measuredPrice}}</b></h4>
+            <p class="card-text">{{i.description}}</p>
+            <p class="card-text">{{i.price}}</p>
+                
+            </div>
+
+        </div>
+        {% endfor %}
+           
+        </div>
+ 
+
+
+    </div>
+
+
+
+</body>
+</html>
+
